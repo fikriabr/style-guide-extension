@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSS Style Guide</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <h1 class="sr-only">CSS Style Guide: Tailwind dan Bootstrap</h1>
+
+    <section class="pagebar" aria-labelledby="pb-title">
+      <h2 id="pb-title" class="sr-only">Halaman aktif</h2>
+      <div class="pb-head">
+        <span class="pb-host" id="pb-host">Memeriksa halaman…</span>
+        <button type="button" id="pb-refresh" class="text-btn hit">Deteksi ulang</button>
+      </div>
+      <ul class="pb-list" id="pb-list" aria-live="polite"></ul>
+      <button type="button" id="inspect-btn" class="primary" disabled>Pilih elemen di halaman</button>
+      <p id="pb-msg" class="pb-msg" role="status"></p>
+    </section>
+
+    <label class="field-label" for="q">Cari style</label>
+    <div class="search">
+      <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="q" type="search" autocomplete="off" spellcheck="false" placeholder="mis. padding, flex, rata tengah, modal">
+      <button type="button" class="clear hit" id="clear" aria-label="Hapus pencarian">×</button>
+      <kbd class="hint" title="Tekan / untuk fokus ke pencarian">/</kbd>
+    </div>
+    <div class="filters">
+      <div class="chips" role="group" aria-label="Filter framework">
+        <button type="button" class="chip hit" data-fw="all" aria-pressed="true">Semua</button>
+        <button type="button" class="chip tw hit" data-fw="tailwind" aria-pressed="false">Tailwind CSS</button>
+        <button type="button" class="chip bs hit" data-fw="bootstrap" aria-pressed="false">Bootstrap</button>
+      </div>
+      <span id="count" class="count" aria-live="polite"></span>
+    </div>
+  </header>
+
+  <main id="results" class="results" tabindex="-1"></main>
+  <p id="copy-status" class="sr-only" role="status"></p>
+
+  <footer class="foot">
+    <span>↑↓ pilih · Enter buka docs · Ctrl+C salin class</span>
+    <span>Tailwind v4 · Bootstrap 5.3</span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="versions.js"></script>
+  <script src="detect.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
